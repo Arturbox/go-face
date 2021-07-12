@@ -243,7 +243,7 @@ func (rec *Recognizer) SetSamples(samples []Descriptor, cats []int32) {
 // returned if no match. Thread-safe.
 func (rec *Recognizer) Classify(testSample Descriptor) int {
 	cTestSample := (*C.float)(unsafe.Pointer(&testSample))
-	return int(C.facerec_classify(rec.ptr, cTestSample, 1))
+	return int(C.facerec_classify(rec.ptr, cTestSample, -1))
 }
 
 // Same as Classify but allows to specify max distance between faces to
